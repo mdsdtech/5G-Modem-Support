@@ -430,12 +430,6 @@ rpm_resume_exit:
 	return ret;
 }
 
-/** Commented for now, its cause error when compiling with an error:(Openwrt)
-error: 'mhi_system_resume' defined but not used [-Werror=unused-function]
-
-I dont have idea how to solve this. i just follow the solution from Quectel:
-https://forums.quectel.com/t/driver-for-linux-6-x/27052/7
-
 static int mhi_system_resume(struct device *dev)
 {
 	int ret = 0;
@@ -445,13 +439,12 @@ static int mhi_system_resume(struct device *dev)
 	if (ret) {
 		MHI_ERR("Failed to resume link\n");
 	} else {
-		pm_runtime_set_active(dev);
-		pm_runtime_enable(dev);
+		//pm_runtime_set_active(dev);
+		//pm_runtime_enable(dev);
 	}
 
 	return ret;
 }
-**/
 
 int mhi_system_suspend(struct device *dev)
 {
