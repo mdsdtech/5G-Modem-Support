@@ -11,8 +11,6 @@ PKG_NAME:=qfirehose
 PKG_VERSION:=1.4.17
 PKG_RELEASE:=1
 
-PKG_FLAGS:=nonshared
-
 include $(INCLUDE_DIR)/package.mk
 
 define Package/qfirehose
