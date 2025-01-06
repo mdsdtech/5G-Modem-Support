@@ -35,7 +35,7 @@ endef
 
 define Package/qfirehose/install
 	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/qfirehose $(1)/usr/bin/QFirehose
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/QFirehose $(1)/usr/bin/QFirehose
 endef
 
 $(eval $(call BuildPackage,qfirehose))
