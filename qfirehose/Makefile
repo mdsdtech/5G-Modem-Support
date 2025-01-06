@@ -16,7 +16,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/qfirehose
   SECTION:=utils
   CATEGORY:=Utilities
-  TITLE:=Quectel FireHose
+  TITLE:=QFireHose
 endef
 
 define Build/Prepare
