@@ -1,4 +1,33 @@
 Release Notes
+[QFirehose_Linux_Android_V1.4.21]
+Date:   08/14/2024
+enhancement:
+  1. Support EG120KEABA upgrade in RNDIS mode
+fix:
+
+[QFirehose_Linux_Android_V1.4.20]
+Date:   07/18/2024
+enhancement:
+  1. Support AG600K to upgrade using adb command let module into edl
+  2. Support sec-boot upgrade file to burn
+fix:
+
+Release Notes
+[QFirehose_Linux_Android_V1.4.19]
+Date:   04/30/2024
+enhancement:
+  1. The input parameter can be a precise file to specify the reading of the upgrade file.
+  2. RG650V using rndis can use this tool to upgrade.(./QFirehose -f ${upgrade_file_path} -d emmc)
+fix:
+
+[QFirehose_Linux_Android_V1.4.18]
+Date:   12/29/2023
+enhancement:
+  1. New support for upgrading the laptop module EM120K-GL
+  2. New support for SA885GAPNA(ufs) upgrade
+  3. Added support for AG215SGLBA(with a single image greater than 40M in the firmware package) upgrade
+  4. New support for RM520NGL(custom PID is 0x0804) upgrade
+fix:
 
 [QFirehose_Linux_Android_V1.4.17]
 Date:   09/13/2023
@@ -45,7 +74,7 @@ fix:
 Date:   12/15/2022
 enhancement:
   1. Added support for Qualcomm subcontracting firmware upgrade (also compatible with non subcontracting firmware)
-  2. Added EC20£¨3C93 FFFF£©upgrade
+  2. Added EC20ï¿½ï¿½3C93 FFFFï¿½ï¿½upgrade
   3. Add BG95M3 anti misburning function
   4. Add other device type full wipe upgrade functions except nand
 fix:
@@ -93,7 +122,7 @@ fix:
 Date:   6/11/2021
 enhancement:
 fix:
-	1. Ôö¼Ó¶ÔEC20¼½±±ÏîÄ¿
+	1. ï¿½ï¿½ï¿½Ó¶ï¿½EC20ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿
 
 [Quectel_LTE&5G_QFirehose_Linux&Android_V1.4.5]
 Date:   3/4/2021
@@ -167,4 +196,3 @@ fix:
 Date:   2019/07/31
 enhancement:
   1. First Release Version of QFirehose Tool.
-	 

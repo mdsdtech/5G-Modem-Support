@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qfirehose
-PKG_VERSION:=1.4.17
+PKG_VERSION:=1.4.21
 PKG_RELEASE:=1
 
 include $(INCLUDE_DIR)/package.mk

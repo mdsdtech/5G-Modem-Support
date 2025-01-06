@@ -1,14 +1,16 @@
 NDK_BUILD:=/home/aaron/share-aaron-1/android-ndk-r10e/ndk-build
 SRC=firehose_protocol.c  qfirehose.c  sahara.c usb_linux.c stream_download_protocol.c md5.c usb2tcp.c 
 
-CFLAGS += -Wall -Wextra -Werror -O1 #-s
+CFLAGS += -Wall -Wextra -Werror -g #-s
 LDFLAGS += -lpthread -ldl
+BINPATH := ./out
 ifeq ($(CC),cc)
 CC=${CROSS_COMPILE}gcc
 endif
 
 linux: clean
-	${CC} ${CFLAGS} ${SRC} -o QFirehose ${LDFLAGS}
+	$(shell if [ -e  ${BINPATH}]; then echo "file existed";else mkdir ${BINPATH}; fi;)
+	${CC} ${CFLAGS} ${SRC} -o ${BINPATH}/QFirehose ${LDFLAGS}
 	
 android: clean
 	rm -rf android
@@ -17,4 +19,4 @@ android: clean
 	mv libs android
 
 clean:
-	rm -rf QFirehose obj libs usb2tcp *~
+	rm -rf ${BINPATH}/QFirehose obj libs usb2tcp *~
