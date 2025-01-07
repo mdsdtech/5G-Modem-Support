@@ -8,35 +8,34 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qfirehose
-PKG_VERSION:=1.4.21
+PKG_VERSION:=1.0
 PKG_RELEASE:=1
 
 PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
-PKG_SOURCE_DIR := $(TOPDIR)/src
 
 include $(INCLUDE_DIR)/package.mk
 
 define Package/qfirehose
-  SECTION:=utils
-  CATEGORY:=Utilities
-  TITLE:=Quectel FireHose
+    SECTION:=utils
+	CATEGORY:=Utilities
+	TITLE:=Quectel FireHose
 endef
 
 define Build/Prepare
-	$(MKDIR) $(PKG_BUILD_DIR)
-	$(CP) -r ./src/* $(PKG_BUILD_DIR)/
+    mkdir -p $(PKG_BUILD_DIR)
+    $(CP) ./src/* $(PKG_BUILD_DIR)/
 endef
 
 define Build/Compile
-	$(MAKE) -C $(PKG_BUILD_DIR) \
-		CC="$(TARGET_CC)" \
-		CFLAGS="$(TARGET_CFLAGS) -Wall" \
-		LDFLAGS="$(TARGET_LDFLAGS)"
+    $(MAKE) -C $(PKG_BUILD_DIR) \
+        CC="$(TARGET_CC)" \
+        CFLAGS="$(TARGET_CFLAGS)" \
+        LDFLAGS="$(TARGET_LDFLAGS)"
 endef
 
 define Package/qfirehose/install
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/QFirehose $(1)/usr/bin/QFirehose
+    $(INSTALL_DIR) $(1)/usr/bin
+    $(INSTALL_BIN) $(PKG_BUILD_DIR)/qfirehose $(1)/usr/bin/
 endef
 
 $(eval $(call BuildPackage,qfirehose))
