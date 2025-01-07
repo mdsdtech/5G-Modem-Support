@@ -11,12 +11,20 @@ PKG_NAME:=qfirehose
 PKG_VERSION:=1.4.21
 PKG_RELEASE:=1
 
+PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
+PKG_SOURCE_DIR := $(TOPDIR)/src
+
 include $(INCLUDE_DIR)/package.mk
 
 define Package/qfirehose
   SECTION:=utils
   CATEGORY:=Utilities
   TITLE:=Quectel FireHose
+endef
+
+define Build/Prepare
+	$(MKDIR) $(PKG_BUILD_DIR)
+	$(CP) -r $(PKG_SOURCE_DIR)/* $(PKG_BUILD_DIR)/
 endef
 
 define Build/Compile
