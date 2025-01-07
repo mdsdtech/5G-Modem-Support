@@ -22,15 +22,17 @@ define Package/qfirehose
 endef
 
 define Build/Prepare
-    mkdir -p $(PKG_BUILD_DIR)
-    $(CP) ./src/* $(PKG_BUILD_DIR)/
+	mkdir -p $(PKG_BUILD_DIR)
+	$(CP) ./src/* $(PKG_BUILD_DIR)/
 endef
 
 define Build/Compile
-    $(MAKE) -C $(PKG_BUILD_DIR) \
-        CC="$(TARGET_CC)" \
-        CFLAGS="$(TARGET_CFLAGS)" \
-        LDFLAGS="$(TARGET_LDFLAGS)"
+	$(MAKE) -C "$(PKG_BUILD_DIR)" \
+		EXTRA_CFLAGS="$(EXTRA_CFLAGS)" \
+		CROSS_COMPILE="$(TARGET_CROSS)" \
+		ARCH="$(LINUX_KARCH)" \
+		M="$(PKG_BUILD_DIR)" \
+		CC="$(TARGET_CC)"
 endef
 
 define Package/qfirehose/install
