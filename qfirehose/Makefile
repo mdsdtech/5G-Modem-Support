@@ -24,13 +24,14 @@ endef
 
 define Build/Prepare
 	$(MKDIR) $(PKG_BUILD_DIR)
-	$(CP) -r $(PKG_SOURCE_DIR)/* $(PKG_BUILD_DIR)/
+	$(CP) -r ./src/* $(PKG_BUILD_DIR)/
 endef
 
 define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR) \
 		CC="$(TARGET_CC)" \
-		CFLAGS="$(TARGET_CFLAGS) -Wall"
+		CFLAGS="$(TARGET_CFLAGS) -Wall" \
+		LDFLAGS="$(TARGET_LDFLAGS)"
 endef
 
 define Package/qfirehose/install
