@@ -8,17 +8,19 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qfirehose
-PKG_VERSION:=1.0
+PKG_VERSION:=1.4.21
 PKG_RELEASE:=1
-
-PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
 
 include $(INCLUDE_DIR)/package.mk
 
 define Package/qfirehose
     SECTION:=utils
 	CATEGORY:=Utilities
-	TITLE:=Quectel FireHose
+	TITLE:=QFirehose
+endef
+
+define Package/qfirehose/description
+	QFirehose is a utility that uses the to upgrade modems.
 endef
 
 define Build/Prepare
@@ -37,7 +39,7 @@ endef
 
 define Package/qfirehose/install
     $(INSTALL_DIR) $(1)/usr/bin
-    $(INSTALL_BIN) $(PKG_BUILD_DIR)/qfirehose $(1)/usr/bin/
+    $(INSTALL_BIN) $(PKG_BUILD_DIR)/qfirehose $(1)/usr/bin/QFirehose
 endef
 
 $(eval $(call BuildPackage,qfirehose))
